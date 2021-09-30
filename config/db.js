@@ -9,24 +9,11 @@ const connectDB = async () => {
       //   useCreateIndex: true,
       //   useFindAndModify: false,
     });
+    console.log("mongoose connected");
   } catch (err) {
     console.log(err.message);
     process.exit(1); // Exits with failure
   }
-};
-
-const connectDB = async () => {
-  mongoose
-    .connect(db, {
-      useNewUrlParser: true,
-      //   useCreateIndex: true,
-      //   useFindAndModify: false,
-    })
-    .then(() => console.log("MongoDB Connected"))
-    .catch((err) => {
-      console.error(err.message);
-      process.exit(1); // Exits with failure
-    });
 };
 
 module.exports = connectDB;
