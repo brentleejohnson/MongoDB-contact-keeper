@@ -9,7 +9,7 @@ const connectDB = async () => {
       //   useCreateIndex: true,
       //   useFindAndModify: false,
     });
-    console.log("mongoose connected");
+    console.log("Mongoose connected");
   } catch (err) {
     console.log(err.message);
     process.exit(1); // Exits with failure
