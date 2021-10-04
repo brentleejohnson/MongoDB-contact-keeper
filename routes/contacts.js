@@ -68,12 +68,12 @@ router.put("/:id", auth, async (req, res) => {
   if (type) contactFields.type = type;
 
   try {
-    if (req.user.id.role == "admin") {
+    let user = await User.findById(req.user.id);
+
+    if (user.role === "admin") {
       let contact = await Contact.findById(req.params.id);
-
-      if (!contact) return res.status(404).json({ msg: "Contact not found" });
-
       // Make sure user owns contact
+      if (!contact) return res.status(404).json({ msg: "Contact not found" });
       if (contact.user.toString() !== req.user.id) {
         return res.status(401).json({ msg: "Not authorized" });
       }
