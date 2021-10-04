@@ -1,9 +1,4 @@
 const mongoose = require("mongoose");
-const auth = require("../middleware/auth");
-const { check, validationResult } = require("express-validator/check");
-
-const User = require("../models/User");
-const User = require("../models/Contact");
 
 const ContactSchema = mongoose.Schema({
   user: {
@@ -31,4 +26,4 @@ const ContactSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("user", ContactSchema);
+module.exports = mongoose.model("contact", ContactSchema);
